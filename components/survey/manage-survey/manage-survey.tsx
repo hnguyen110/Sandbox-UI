@@ -1,25 +1,17 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Row } from "antd";
-import { useForm } from "antd/es/form/Form";
+import { Button, Card } from "antd";
 import { useState } from "react";
 import GenericDrawer from "../../utilities/drawer/drawer";
 import SurveyFormModal from "../survey-form-modal/survey-form-modal";
 import SurveyList from "../survey-list/survey-list";
 import SurveyParticipantList from "../survey-participant-list/survey-participant-list";
 import SurveyQuestionList from "../survey-question-list/survey-question-list";
+import { useForm } from "antd/lib/form/Form";
 
 export default function ManageSurvey() {
   const [surveyForm] = useForm();
   const [modalVisibility, setModalVisibility] = useState(false);
   const [open, setOpen] = useState(false);
-
-  const data = [
-    {
-      title: "What makes a good survey question?",
-      description:
-        "To make a good survey question, you have to choose the right type of questions to use. Include concise, clear, and appropriate questions with answer choices that won’t confuse the respondent and will clearly provide data on their experience.",
-    },
-  ];
 
   return (
     <Card
@@ -79,7 +71,13 @@ export default function ManageSurvey() {
       </GenericDrawer>
       <SurveyList
         onItemClickHandler={() => setOpen(true)}
-        data={data}
+        data={[
+          {
+            title: "What makes a good survey question?",
+            description:
+              "To make a good survey question, you have to choose the right type of questions to use. Include concise, clear, and appropriate questions with answer choices that won’t confuse the respondent and will clearly provide data on their experience.",
+          },
+        ]}
         itemLayout={"horizontal"}
       />
     </Card>
