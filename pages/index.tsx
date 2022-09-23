@@ -1,3 +1,9 @@
+import SideMenu from "../components/utilities/side-menu/side-menu";
+
 export default function Index() {
-  return <div></div>;
+    return (
+        <div>
+            <SideMenu/>
+        </div>
+    );
 }
